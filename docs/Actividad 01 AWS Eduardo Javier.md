@@ -453,11 +453,6 @@ La utilidad principal de este análisis es que introduce una perspectiva más ce
 
 ## 7. Conclusiones
 
-La práctica permitió utilizar Amazon EMR como herramienta de procesamiento de datos dentro del entorno de AWS, trabajando con un conjunto de datos real procedente del Gobierno de Canarias.
+En general, esta práctica me sirvió no solo para entender mejor el funcionamiento básico de Amazon EMR, sino también para ver de forma práctica cómo se pueden transformar y analizar datos reales dentro de un flujo de trabajo basado en AWS.
 
-A lo largo del proceso se pudo comprobar la utilidad de Amazon S3 como sistema de almacenamiento y de EMR como plataforma de ejecución distribuida para el análisis del archivo `observations.tsv`. Mediante distintos scripts en PySpark fue posible generar salidas concretas y obtener información relevante sobre los egresados de Formación Profesional.
-
-Entre los resultados más destacados se encuentra la identificación de titulaciones con mayor volumen de egresados, la distribución equilibrada de los egresados según el sexo y la posibilidad de estudiar la relación con la actividad en un momento concreto posterior al egreso.
-
-En conjunto, la práctica permitió no solo conocer el funcionamiento básico de Amazon EMR, sino también comprobar cómo puede utilizarse para transformar y analizar datos reales dentro de un flujo de trabajo basado en AWS.
-
+Entre los resultados más importantes, destacaría la identificación de las titulaciones con mayor número de egresados, una distribución bastante equilibrada según el sexo y la posibilidad de analizar su relación con la actividad en un momento posterior al egreso.
