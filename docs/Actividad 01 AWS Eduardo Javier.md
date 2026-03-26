@@ -118,10 +118,6 @@ Una vez confirmada la creación haciendo clic en Add, el paso comenzará su cicl
 
 El primer análisis se centró en la distribución total de egresados por titulación. Para ello, se agruparon los registros según la variable `TITULACION` y se calculó la suma de `OBS_VALUE` en aquellos casos donde la medida era `Egresados`.
 
-Los resultados muestran que algunas categorías presentan un volumen especialmente alto, como `CFGS (LOE)`, `CFGM (LOE)`, `Administración y Gestión`, `Servicios Socioculturales y a la Comunidad` y `Sanidad`. Esto indica que una parte importante de los egresados del conjunto de datos se concentra en ramas formativas relacionadas con administración, servicios sociales y sanitarios.
-
-No obstante, este resultado debe interpretarse con cautela, ya que la variable `TITULACION` incluye distintos niveles de agregación. En algunas filas aparecen familias profesionales amplias, en otras ciclos concretos y en otras niveles formativos generales. Además, también se detectaron algunas diferencias de escritura entre categorías similares, lo que sugiere que sería recomendable realizar una normalización adicional de los nombres antes de un análisis definitivo.
-
 
 ``` python
 from pyspark.sql import SparkSession
@@ -163,6 +159,9 @@ resultado.show()
 
 spark.stop()
 ```
+Los resultados muestran que algunas categorías presentan un volumen especialmente alto, como `CFGS (LOE)`, `CFGM (LOE)`, `Administración y Gestión`, `Servicios Socioculturales y a la Comunidad` y `Sanidad`. Esto indica que una parte importante de los egresados del conjunto de datos se concentra en ramas formativas relacionadas con administración, servicios sociales y sanitarios.
+
+No obstante, este resultado debe interpretarse con cautela, ya que la variable `TITULACION` incluye distintos niveles de agregación. En algunas filas aparecen familias profesionales amplias, en otras ciclos concretos y en otras niveles formativos generales. Además, también se detectaron algunas diferencias de escritura entre categorías similares, lo que sugiere que sería recomendable realizar una normalización adicional de los nombres antes de un análisis definitivo.
 
 | TITULACION                                                               | Total_Egresados |
 |:-------------------------------------------------------------------------|---------------:|
@@ -329,13 +328,13 @@ spark.stop()
 | Gestión del agua                                                         |           144.0 |
 | Inteligencia artificial y Big Data                                       |           112.0 |
 | Instalación y mantenimiento de sistemas conectados a internet (IoT)      |            16.0 |
+
+
+
 ### 6.2 Distribución de egresados según el sexo
 
 En el segundo análisis se estudió la distribución de los egresados según la variable `SEXO`. Para ello, se agruparon los datos y se calculó el total de egresados en cada categoría.
 
-Los resultados muestran una distribución bastante equilibrada entre hombres y mujeres, aunque se observa una ligera mayoría masculina. Mientras que el total de mujeres egresadas se sitúa en torno a 2,77 millones, el total de hombres supera ligeramente esa cifra, alcanzando aproximadamente 2,84 millones.
-
-Esta diferencia no es muy grande en términos relativos, por lo que puede afirmarse que la distribución por sexo es bastante equilibrada dentro del conjunto de datos analizado. Aun así, el ligero predominio de hombres puede resultar relevante en función del tipo de titulaciones que tengan más peso en el dataset.
 
 ``` python
 from pyspark.sql import SparkSession
@@ -377,6 +376,9 @@ resultado.show()
 
 spark.stop()
 ```
+Los resultados muestran una distribución bastante equilibrada entre hombres y mujeres, aunque se observa una ligera mayoría masculina. Mientras que el total de mujeres egresadas se sitúa en torno a 2,77 millones, el total de hombres supera ligeramente esa cifra, alcanzando aproximadamente 2,84 millones.
+
+Esta diferencia no es muy grande en términos relativos, por lo que puede afirmarse que la distribución por sexo es bastante equilibrada dentro del conjunto de datos analizado. Aun así, el ligero predominio de hombres puede resultar relevante en función del tipo de titulaciones que tengan más peso en el dataset.
 
 | SEXO    |   Total_Egresados |
 |:--------|------------------:|
@@ -389,9 +391,7 @@ spark.stop()
 
 El tercer análisis se centró en la variable `RELACION_ACTIVIDAD`, aplicando previamente el filtro `TIEMPO_EGRESO = "4 trimestres después del egreso"`. De esta forma, el estudio no mezcla situaciones correspondientes a distintos momentos temporales y se centra en un punto concreto: la situación de los egresados un año después de finalizar sus estudios.
 
-Este enfoque permite obtener una lectura más útil del dataset, ya que muestra cómo se distribuyen los egresados entre distintas situaciones, como personas asalariadas registradas, desempleadas registradas, estudiantes, personas que trabajan por cuenta propia y otras categorías.
 
-La utilidad principal de este análisis es que introduce una perspectiva más cercana a la inserción o continuidad de la trayectoria de los egresados. Frente a otros análisis más descriptivos, este permite observar mejor cuál es la posición de los egresados en relación con la actividad después de un periodo razonable desde su egreso.
 
 ``` python
 from pyspark.sql import SparkSession
@@ -439,7 +439,9 @@ resultado.show()
 
 spark.stop()
 ```
+Este enfoque permite obtener una lectura más útil del dataset, ya que muestra cómo se distribuyen los egresados entre distintas situaciones, como personas asalariadas registradas, desempleadas registradas, estudiantes, personas que trabajan por cuenta propia y otras categorías.
 
+La utilidad principal de este análisis es que introduce una perspectiva más cercana a la inserción o continuidad de la trayectoria de los egresados. Frente a otros análisis más descriptivos, este permite observar mejor cuál es la posición de los egresados en relación con la actividad después de un periodo razonable desde su egreso.
 
 | RELACION_ACTIVIDAD                        |   Total_Egresados |
 |:------------------------------------------|------------------:|
