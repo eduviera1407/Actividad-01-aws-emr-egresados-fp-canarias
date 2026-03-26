@@ -30,7 +30,6 @@ Entre las variables más relevantes del dataset se encuentran:
 - `MEDIDAS`, que diferencia entre tipos de medida como el número de egresados o el porcentaje de egresados.
 - `OBS_VALUE`, que contiene el valor numérico asociado a cada observación.
 
-Este dataset resulta adecuado para la práctica porque permite realizar análisis desde distintas perspectivas, como la distribución por titulación, la comparación por sexo o la situación de los egresados tras un determinado tiempo desde el egreso.
 
 ## 3. Subida del dataset a Amazon S3
 
